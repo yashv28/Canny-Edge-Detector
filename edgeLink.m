@@ -1,0 +1,33 @@
+function E = edgeLink(M, Mag, Ori)
+%%  Description
+%       use hysteresis to link edges
+%%  Input: 
+%        M = (H, W), logic matrix, output from non-max suppression
+%        Mag = (H, W), double matrix, the magnitude of gradient
+%    		 Ori = (H, W), double matrix, the orientation of gradient
+%
+%%  Output:
+%        E = (H, W), logic matrix, the edge detection result.
+%
+
+th_low = max(M(:))/2;
+th_high = max(M(:))-min(M(:));
+[nr,nc] = size(Mag);
+E = zeros(nr,nc);
+for i = 1:nr
+    for j = 1:nc
+        if (M(i,j) < th_low)
+            E(i,j) = 0;
+        elseif (M(i, j) > th_high)
+            E(i,j) = 1;
+        else
+            if ((M(i+1,j) >= th_high) || ...
+                (M(i-1,j) >= th_high) || ...
+                (M(i,j+1) >= th_high) || ...
+                (M(i,j-1) >= th_high))
+                E(i,j) = 1;
+            end
+        end
+    end
+end
+end
