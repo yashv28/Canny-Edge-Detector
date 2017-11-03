@@ -16,3 +16,5 @@ Canny edge detector uses the following methods to compute the edges:
 | ![](Input/3096.jpg) | ![](Results/3096.jpg) |
 | ![](Input/201080.jpg) | ![](Results/201080.jpg) |
 | ![](Input/135069.jpg) | ![](Results/135069.jpg) |
+| ![](Input/29030.jpg) | ![](Results/29030.jpg) |
+| ![](Input/48017.jpg) | ![](Results/48017.jpg) |
