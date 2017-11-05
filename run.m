@@ -1,7 +1,7 @@
 clear
 clc
 
-I = imread('./Input/48017.jpg');
+I = imread('./Input/NY.jpg');
 
-O = cannyEdge(I);
+O = cannyRGB(I);
 imwrite(O,'./Results/o.jpg');
